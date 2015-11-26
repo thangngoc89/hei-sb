@@ -11,7 +11,7 @@ module.exports = function(options) {
   options.lint = fs.existsSync(__dirname + '/../.eslintrc') && options.lint !== false;
 
   var localIdentName = options.production ? '[hash:base64]' : '[path]-[local]-[hash:base64:5]';
-  var cssLoaders = 'style!css?localIdentName=' + localIdentName + '!autoprefixer?browsers=last 2 versions';
+  var cssLoaders = 'style!css?modules&importLoaders=1&localIdentName=' + localIdentName + '!autoprefixer?browsers=last 2 versions';
   var scssLoaders = cssLoaders + '!sass';
   var sassLoaders = scssLoaders + '?indentedSyntax=sass';
   var lessLoaders = cssLoaders + '!less';
