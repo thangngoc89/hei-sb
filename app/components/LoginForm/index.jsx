@@ -67,7 +67,7 @@ class LoginForm extends React.Component {
                 className="btn btn-info btn-block"
                 styleName="formBoxLogin"
                 type="submit"
-              >{'Go'}</button>
+              >Let's start</button>
             </form>
           </div>
         </div>
