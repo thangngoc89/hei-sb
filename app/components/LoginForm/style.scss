@@ -1,0 +1,37 @@
+@import "../../css/_variables";
+
+:local .avatar {
+  img {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid $color-border-d1;
+    background-size: cover;
+  }
+}
+
+:local .formBox {
+  input{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid $color-border;;
+    background: $color-bacnground;
+    transition:0.2s ease-in-out;
+    border-radius: 5px;
+    text-transform: lowercase;
+  }
+
+  input:focus{
+    outline: 0;
+    background: $color-bacnground-l1;
+  }
+}
+
+
+:local .formBoxLogin{
+  margin-top:15px;
+  padding: 10px 20px;
+}

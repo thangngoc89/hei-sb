@@ -1,84 +1,29 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
-import styles from './style'
-import logoHEI from './img/avatar.jpg'
+import { Router, Route } from 'react-router'
+import LoginForm from '../LoginForm'
+import WelcomePage from '../WelcomePage'
 
 class Application extends React.Component {
-  displayName = 'Login Form'
+  displayName = 'Application'
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      name: '',
-      email: '',
-      code: ''
-    }
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault()
-    alert(this.state.code)
-  }
-
-  handleNameChange = (e) => {
-    this.setState({name: e.target.value})
-  }
-
-  handleEmailChange = (e) => {
-    this.setState({email: e.target.value})
-  }
-
-  handleCodeChange = (e) => {
-    this.setState({code: e.target.value})
+  constructor() {
+    super()
   }
 
   render() {
-    return( <div className="container">
-      <div className="row">
-        <div
-          className="col-sm-8 col-md-5"
-          styleName="loginContainer"
-        >
-          <div id="output"></div>
-          <div styleName="avatar">
-            <img src={logoHEI}></img>
-            <h2>{'Enter your details'}</h2>
-          </div>
-          <div styleName="formBox">
-            <form onSubmit={this.handleSubmit}>
-              <input
-                onChange={this.handleNameChange}
-                placeholder="Your name"
-                require="true"
-                type="text"
-                value={this.state.name}
-              ></input>
-              <input
-                onChange={this.handleEmailChange}
-                placeholder="Your email"
-                require="true"
-                type="email"
-                value={this.state.email}
-              ></input>
-              <input
-                onChange={this.handleCodeChange}
-                placeholder="Your code"
-                require="true"
-                type="text"
-                value={this.state.code}
-              ></input>
-              <button
-                className="btn btn-info btn-block"
-                styleName="formBoxLogin"
-                type="submit"
-              >{'Go'}</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>)
+    return(
+      <Router>
+          <Route
+            path="/"
+            component={WelcomePage}
+          />
+          <Route
+            path="login"
+            component={LoginForm}
+          />
+      </Router>
+    )
   }
 }
 
-export default CSSModules(Application, styles)
+export default Application
