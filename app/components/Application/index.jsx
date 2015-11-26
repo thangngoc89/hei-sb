@@ -9,9 +9,9 @@ class Application extends React.Component {
     super(props)
 
     this.state = {
-      name: 'Khoa',
-      email: 'khoa02031995@gmail.com',
-      code: 'haha'
+      name: '',
+      email: '',
+      code: ''
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleEmailChange = this.handleEmailChange.bind(this)
@@ -24,7 +24,7 @@ class Application extends React.Component {
   }
 
   handleNameChange = (e) => {
-    this.setState({email: e.target.value})
+    this.setState({name: e.target.value})
   }
 
   handleEmailChange = (e) => {
@@ -49,19 +49,19 @@ class Application extends React.Component {
               <input
                 type="text" placeholder="Your name"
                 value={this.state.name}
-                onChange={this.handleNameChange.bind(this)}
+                onChange={this.handleNameChange}
                 require
                 ></input>
               <input
                 type="email" placeholder="Your email"
                 value={this.state.email}
-                onChange={this.handleEmailChange.bind(this)}
+                onChange={this.handleEmailChange}
                 require
                 ></input>
               <input
                 type="text" placeholder="Your code"
                 value={this.state.code}
-                onChange={this.handleCodeChange.bind(this)}
+                onChange={this.handleCodeChange}
                 require
                 ></input>
               <button
@@ -72,7 +72,7 @@ class Application extends React.Component {
           </div>
         </div>
       </div>
-    </div>;
+    </div>
   }
 }
 

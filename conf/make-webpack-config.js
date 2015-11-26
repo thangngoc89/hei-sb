@@ -23,7 +23,7 @@ module.exports = function(options) {
     lessLoaders = extractForProduction(lessLoaders);
   }
 
-  var jsLoaders = ['babel'];
+  var jsLoaders = ['babel?presets[]=react,presets[]=es2015,presets[]=stage-0&cacheDirectory'];
 
   return {
     entry: options.production ? './app/index.jsx' : [
