@@ -2,7 +2,7 @@ import React from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './style'
 import { Link } from 'react-router'
-//import logoHEI from './img/avatar.jpg'
+import ClubLogo from '../ClubLogo'
 
 class LoginForm extends React.Component {
   displayName = 'Welcome Page'
@@ -16,6 +16,7 @@ class LoginForm extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-10 decorated-container">
+            <ClubLogo />
             <p className="headline">
               Welcome to <strong>Medical Spelling Bees</strong>
             </p>

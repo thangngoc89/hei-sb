@@ -1,7 +1,7 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './style'
-import logoHEI from './img/avatar.jpg'
+import ClubLogo from '../ClubLogo'
 
 class LoginForm extends React.Component {
   displayName = 'Login Form'
@@ -36,15 +36,11 @@ class LoginForm extends React.Component {
   render() {
     return( <div className="container">
       <div className="row">
-        <div
-          className="col-sm-8 col-md-5 decorated-container"
-        >
+        <div className="col-sm-8 col-md-5 decorated-container">
           <div id="output"></div>
-          <div styleName="avatar">
-            <img src={logoHEI}></img>
-            <h2>{'Enter your details'}</h2>
-          </div>
+          <ClubLogo />
           <div styleName="formBox">
+            <h2>{'Enter your details'}</h2>
             <form onSubmit={this.handleSubmit}>
               <input
                 onChange={this.handleNameChange}
