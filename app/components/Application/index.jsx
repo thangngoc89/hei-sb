@@ -11,19 +11,23 @@ class Application extends React.Component {
 
   render() {
     return <div className="container">
-      <div styleName="loginContainer">
+      <div className="row">
+      <div className="col-sm-8 col-md-5" styleName="loginContainer">
         <div id="output"></div>
         <div styleName="avatar">
           <img src={avatar}></img>
+          <h2>Enter your details</h2>
         </div>
         <div styleName="formBox">
           <form action="" method="">
-            <input type="text" placeholder="Tên c?a b?n"></input>
-            <input type="text" placeholder="code"></input>
-            <button className="btn btn-info btn-block" styleName="formBoxLogin" type="submit">Login</button>
+            <input type="text" placeholder="Your name" require></input>
+            <input type="email" placeholder="Your email" require></input>
+            <input type="text" placeholder="Your login code" require></input>
+            <button className="btn btn-info btn-block" styleName="formBoxLogin" type="submit">Go</button>
           </form>
         </div>
       </div>
+        </div>
     </div>;
   }
 }
