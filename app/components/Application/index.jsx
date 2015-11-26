@@ -1,10 +1,11 @@
-import React from 'react';
-import Header from '../Header';
-import CSSModules from 'react-css-modules';
-import styles from './style';
-import avatar from './img/avatar.jpg';
+import React from 'react'
+import CSSModules from 'react-css-modules'
+import styles from './style'
+import logoHEI from './img/avatar.jpg'
 
 class Application extends React.Component {
+  displayName = 'Login Form'
+
   constructor(props) {
     super(props)
 
@@ -13,9 +14,6 @@ class Application extends React.Component {
       email: '',
       code: ''
     }
-    this.handleNameChange = this.handleNameChange.bind(this)
-    this.handleEmailChange = this.handleEmailChange.bind(this)
-    this.handleCodeChange = this.handleCodeChange.bind(this)
   }
 
   handleSubmit = (e) => {
@@ -36,43 +34,50 @@ class Application extends React.Component {
   }
 
   render() {
-    return <div className="container">
+    return( <div className="container">
       <div className="row">
-        <div className="col-sm-8 col-md-5" styleName="loginContainer">
+        <div
+          className="col-sm-8 col-md-5"
+          styleName="loginContainer"
+        >
           <div id="output"></div>
           <div styleName="avatar">
-            <img src={avatar}></img>
-            <h2>Enter your details</h2>
+            <img src={logoHEI}></img>
+            <h2>{'Enter your details'}</h2>
           </div>
           <div styleName="formBox">
             <form onSubmit={this.handleSubmit}>
               <input
-                type="text" placeholder="Your name"
-                value={this.state.name}
                 onChange={this.handleNameChange}
-                require
-                ></input>
+                placeholder="Your name"
+                require="true"
+                type="text"
+                value={this.state.name}
+              ></input>
               <input
-                type="email" placeholder="Your email"
-                value={this.state.email}
                 onChange={this.handleEmailChange}
-                require
-                ></input>
+                placeholder="Your email"
+                require="true"
+                type="email"
+                value={this.state.email}
+              ></input>
               <input
-                type="text" placeholder="Your code"
-                value={this.state.code}
                 onChange={this.handleCodeChange}
-                require
-                ></input>
+                placeholder="Your code"
+                require="true"
+                type="text"
+                value={this.state.code}
+              ></input>
               <button
+                className="btn btn-info btn-block"
+                styleName="formBoxLogin"
                 type="submit"
-                className="btn btn-info btn-block" styleName="formBoxLogin"
-              >Go</button>
+              >{'Go'}</button>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </div>)
   }
 }
 

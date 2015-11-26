@@ -1,29 +1,29 @@
-var fs = require('fs');
-var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var fs = require('fs')
+var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var path = require('path')
 
 function extractForProduction(loaders) {
-  return ExtractTextPlugin.extract('style', loaders.substr(loaders.indexOf('!')));
+  return ExtractTextPlugin.extract('style', loaders.substr(loaders.indexOf('!')))
 }
 
 module.exports = function(options) {
-  options.lint = fs.existsSync(__dirname + '/../.eslintrc') && options.lint !== false;
+  options.lint = fs.existsSync(__dirname + '/../.eslintrc') && options.lint !== false
 
-  var localIdentName = options.production ? '[hash:base64]' : '[path]-[local]-[hash:base64:5]';
-  var cssLoaders = 'style!css?modules&importLoaders=1&localIdentName=' + localIdentName + '!autoprefixer?browsers=last 2 versions';
-  var scssLoaders = cssLoaders + '!sass';
-  var sassLoaders = scssLoaders + '?indentedSyntax=sass';
-  var lessLoaders = cssLoaders + '!less';
+  var localIdentName = options.production ? '[hash:base64]' : '[path]-[local]-[hash:base64:5]'
+  var cssLoaders = 'style!css?localIdentName=' + localIdentName + '!autoprefixer?browsers=last 2 versions'
+  var scssLoaders = cssLoaders + '!sass'
+  var sassLoaders = scssLoaders + '?indentedSyntax=sass'
+  var lessLoaders = cssLoaders + '!less'
 
   if (options.production) {
-    cssLoaders = extractForProduction(cssLoaders);
-    sassLoaders = extractForProduction(sassLoaders);
-    scssLoaders = extractForProduction(scssLoaders);
-    lessLoaders = extractForProduction(lessLoaders);
+    cssLoaders = extractForProduction(cssLoaders)
+    sassLoaders = extractForProduction(sassLoaders)
+    scssLoaders = extractForProduction(scssLoaders)
+    lessLoaders = extractForProduction(lessLoaders)
   }
-
-  var jsLoaders = ['babel?presets[]=react,presets[]=es2015,presets[]=stage-0&cacheDirectory'];
+  var jsLoaders = ['babel?presets[]=react,presets[]=es2015,presets[]=stage-0&cacheDirectory']
 
   return {
     entry: options.production ? './app/index.jsx' : [
@@ -75,19 +75,19 @@ module.exports = function(options) {
         },
         {
           test: /\.png$/,
-          loader: "url?limit=100000&mimetype=image/png",
+          loader: 'url?limit=100000&mimetype=image/png',
         },
         {
           test: /\.svg$/,
-          loader: "url?limit=100000&mimetype=image/svg+xml",
+          loader: 'url?limit=100000&mimetype=image/svg+xml',
         },
         {
           test: /\.gif$/,
-          loader: "url?limit=100000&mimetype=image/gif",
+          loader: 'url?limit=100000&mimetype=image/gif',
         },
         {
           test: /\.jpg$/,
-          loader: "file",
+          loader: 'file',
         },
       ],
     },
@@ -97,8 +97,8 @@ module.exports = function(options) {
     plugins: options.production ? [
       // Important to keep React file size down
       new webpack.DefinePlugin({
-        "process.env": {
-          "NODE_ENV": JSON.stringify("production"),
+        'process.env': {
+          'NODE_ENV': JSON.stringify('production'),
         },
       }),
       new webpack.optimize.DedupePlugin(),
@@ -107,7 +107,7 @@ module.exports = function(options) {
           warnings: false,
         },
       }),
-      new ExtractTextPlugin("app.[hash].css"),
+      new ExtractTextPlugin('app.[hash].css'),
       new HtmlWebpackPlugin({
         template: './conf/tmpl.html',
         production: true,
@@ -117,5 +117,5 @@ module.exports = function(options) {
         template: './conf/tmpl.html',
       }),
     ],
-  };
-};
+  }
+}

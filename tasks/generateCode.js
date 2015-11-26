@@ -1,18 +1,18 @@
-var Parse = require('parse/node');
+var Parse = require('parse/node')
 
-Parse.initialize("wUyaZGM0qPNvr2DvKOgGTJSPXa1GWcHV3v3otEiX", "UuxpC6qz6NeU8pauVnzZ7gp9mViPMR3UeUx9K4Fd");
-var CodeObject = Parse.Object.extend("Code");
+Parse.initialize('wUyaZGM0qPNvr2DvKOgGTJSPXa1GWcHV3v3otEiX', 'UuxpC6qz6NeU8pauVnzZ7gp9mViPMR3UeUx9K4Fd')
+var CodeObject = Parse.Object.extend('Code')
 
-var codeList = [];
+var codeList = []
 for(var i = 0; i < 100; i++) {
-  var code = new CodeObject();
-  code.set('isValid', true);
+  var code = new CodeObject()
+  code.set('isValid', true)
 
-  codeList.push(code);
+  codeList.push(code)
 }
 
 Parse.Object.saveAll(codeList, {
-  success: function(objs) {
+  success: function() {
     console.log('done')
   },
   error: function(objs) {

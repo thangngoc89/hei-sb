@@ -1,4 +1,4 @@
-var webpackConfig = require('./webpack.config.js');
+var webpackConfig = require('./webpack.config.js')
 
 module.exports = function(options) {
   var karmaConfig = {
@@ -29,7 +29,7 @@ module.exports = function(options) {
       'karma-phantomjs-launcher',
       'karma-mocha-reporter',
     ],
-  };
+  }
 
   if (options.coverage) {
     // Needs to load first to prevent linting issues
@@ -39,9 +39,9 @@ module.exports = function(options) {
         exclude: /(__tests__|node_modules)/,
         loader: 'isparta-instrumenter-loader',
       },
-    ].concat(webpackConfig.module.preLoaders);
+    ].concat(webpackConfig.module.preLoaders)
 
-    karmaConfig.plugins.push('karma-coverage');
+    karmaConfig.plugins.push('karma-coverage')
 
     karmaConfig.coverageReporter = {
       dir: '../coverage',
@@ -49,17 +49,17 @@ module.exports = function(options) {
         { type: 'text' },
         { type: 'html' },
       ],
-    };
+    }
 
-    karmaConfig.reporters.push('coverage');
+    karmaConfig.reporters.push('coverage')
   }
 
   if (options.notify) {
-    karmaConfig.reporters.push('notify');
-    karmaConfig.plugins.push('karma-notify-reporter');
+    karmaConfig.reporters.push('notify')
+    karmaConfig.plugins.push('karma-notify-reporter')
   }
 
-  karmaConfig.webpack = webpackConfig;
+  karmaConfig.webpack = webpackConfig
 
-  return karmaConfig;
-};
+  return karmaConfig
+}

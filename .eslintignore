@@ -1,3 +1,4 @@
 node_modules/*
 dist/*
 build/*
+conf/make-webpack-config.js
