@@ -2,6 +2,8 @@ import React from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './style'
 import ClubLogo from '../ClubLogo'
+import Parse from 'parse'
+import CodeObject from '../../objects/code'
 
 class LoginForm extends React.Component {
   displayName = 'Login Form'
@@ -18,7 +20,26 @@ class LoginForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    alert(this.state.code)
+    var query = new Parse.Query(CodeObject)
+    query.get(this.state.code, {
+      success: function(code) {
+        console.log('did get')
+        console.log(code.get('isValid'))
+        if (code.get('isValid')) {
+          console.log('Valid code')
+          code.set('isValid', false)
+          code.save()
+        } else {
+          console.log('Unvalid code')
+        }
+      },
+      error: function(object, error) {
+        if (object === null && error.code === 101) {
+          console.log('Unvalid code')
+        }
+      }
+    })
+
   }
 
   handleNameChange = (e) => {
