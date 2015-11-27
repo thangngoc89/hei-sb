@@ -1,15 +1,15 @@
 import React from 'react'
 import ReactTestUtils from 'react-addons-test-utils'
-import Application from '../index.jsx'
+import LoginForm from '../index.jsx'
 import styles from '../style.sass'
 
-describe('Application', function() {
+describe('LoginForm', function() {
   it('displays the component', function() {
     const application = ReactTestUtils.renderIntoDocument(
-      <Application />
+      <LoginForm />
     )
 
-    const divs = ReactTestUtils.scryRenderedDOMComponentsWithClass(application, styles.main)
+    const divs = ReactTestUtils.scryRenderedDOMComponentsWithClass(application, 'container')
 
     expect(divs.length).to.equal(1)
   })
