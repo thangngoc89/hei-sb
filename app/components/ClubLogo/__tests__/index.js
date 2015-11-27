@@ -11,10 +11,15 @@ describe('ClubLogo', function() {
       <ClubLogo />
     )
 
-    const divs = ReactTestUtils.scryRenderedDOMComponentsWithClass(clubLogo, styles.main)
+    const divs = ReactTestUtils.scryRenderedDOMComponentsWithClass(clubLogo, styles.avatar)
 
     expect(divs.length).to.equal(1)
+  })
 
+  it('displays the logo', function() {
+    const clubLogo = ReactTestUtils.renderIntoDocument(
+      <ClubLogo />
+    )
     const img = ReactTestUtils.scryRenderedDOMComponentsWithTag(clubLogo, 'img')
 
     expect(img.length).to.equal(1)
