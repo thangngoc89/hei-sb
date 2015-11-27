@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactTestUtils from 'react-addons-test-utils'
 import Application from '../index.jsx'
-import styles from '../style.sass'
+import styles from '../style'
 
 describe('Application', function() {
   it('displays the component', function() {
