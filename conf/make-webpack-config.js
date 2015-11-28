@@ -34,7 +34,7 @@ module.exports = function(options) {
     debug: !options.production,
     devtool: options.devtool,
     output: {
-      path: options.production ? './dist' : './build',
+      path: options.production ? 'dist/' : 'build/',
       publicPath: options.production ? '' : 'http://localhost:8080/',
       filename: options.production ? 'app.[hash].js' : 'app.js',
     },

@@ -1,7 +1,7 @@
 {
   "name": "hei-spelling-bee",
-  "version": "1.0.0",
-  "description": "My React starter kit. Webpack, Babel, Sass, React 0.14 and more.",
+  "version": "0.0.1",
+  "description": "Just a experience with react stuff",
   "main": "app/index.js",
   "scripts": {
     "test": "./node_modules/karma/bin/karma start conf/karma.conf.js --single-run",
@@ -9,11 +9,11 @@
     "lint": "./node_modules/eslint/bin/eslint .",
     "test:coverage": "./node_modules/karma/bin/karma start conf/karma.coverage.conf.js --single-run",
     "test:ci": "./node_modules/karma/bin/karma start conf/karma.ci.conf.js --single-run",
-    "start": "./node_modules/.bin/webpack-dev-server --config conf/webpack.config.js --hot --progress --colors --content-base ./build",
+    "start": "./node_modules/.bin/webpack-dev-server --config conf/webpack.config.js --hot --progress --colors --content-base build",
     "build": "./node_modules/.bin/webpack --config conf/webpack.production.js",
     "build:gh": "npm run build && node ./build-gh-pages.js && rm -r ./dist"
   },
-  "author": "Khoa Nguyen <brad@bradleyboy.com>",
+  "author": "Khoa Nguyen <hi@khoanguyen.me>",
   "private": true,
   "dependencies": {
     "async": "^1.5.0",

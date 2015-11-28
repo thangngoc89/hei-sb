@@ -1,0 +1,29 @@
+box: node:4.2.2
+
+dev:
+  steps:
+    - npm-install
+    - script:
+        name: Starting development process
+        code: |
+          npm start
+build:
+  steps:
+    - script:
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
+    - npm-install
+    - script:
+        name: Build app
+        code: |
+          npm run build
+deploy:
+  steps:
+    - script:
+      name: Install Surge
+      code: npm install --g surge
+    - script:
+      name: Push to surge.sh
+      code: surge build/ $SURGE_DOMAIN
