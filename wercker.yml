@@ -1,11 +1,18 @@
-box: node:4.2.2
+box: nodesource/trusty:latest
 
 dev:
   steps:
+    - script:
+      # Env vars go here
+      name: Set environment variables
+      code: |
+          export NODE_ENV=development
     - npm-install
     - script:
         name: Starting development process
         code: |
+          node -v
+          npm -v
           npm start
 build:
   steps:

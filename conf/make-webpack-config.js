@@ -15,15 +15,13 @@ module.exports = function(options) {
   var cssLoaders = 'style!css?localIdentName=' + localIdentName + '!autoprefixer?browsers=last 2 versions'
   var scssLoaders = cssLoaders + '!sass'
   var sassLoaders = scssLoaders + '?indentedSyntax=sass'
-  var lessLoaders = cssLoaders + '!less'
 
   if (options.production) {
     cssLoaders = extractForProduction(cssLoaders)
     sassLoaders = extractForProduction(sassLoaders)
     scssLoaders = extractForProduction(scssLoaders)
-    lessLoaders = extractForProduction(lessLoaders)
   }
-  var jsLoaders = ['babel?presets[]=react,presets[]=es2015,presets[]=stage-0&cacheDirectory']
+  var jsLoaders = ['babel?cacheDirectory']
 
   return {
     entry: options.production ? './app/index.jsx' : [
@@ -70,10 +68,6 @@ module.exports = function(options) {
           loader: scssLoaders,
         },
         {
-          test: /\.less$/,
-          loader: lessLoaders,
-        },
-        {
           test: /\.png$/,
           loader: 'url?limit=100000&mimetype=image/png',
         },
@@ -92,7 +86,7 @@ module.exports = function(options) {
       ],
     },
     resolve: {
-      extensions: ['', '.js', '.jsx', '.sass', '.scss', '.less', '.css'],
+      extensions: ['', '.js', '.jsx', '.sass', '.scss', '.css'],
     },
     plugins: options.production ? [
       // Important to keep React file size down
