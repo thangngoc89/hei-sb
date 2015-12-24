@@ -45,7 +45,7 @@
     "html-webpack-plugin": "^1.1.0",
     "isparta": "^4.0.0",
     "isparta-instrumenter-loader": "^1.0.0",
-    "karma": "^0.12.31",
+    "karma": "^0.13.16",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^0.5.3",
     "karma-mocha": "^0.2.1",
